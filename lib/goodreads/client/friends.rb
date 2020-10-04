@@ -8,5 +8,10 @@ module Goodreads
       data = oauth_request("/friend/user/#{user_id}", options)
       Hashie::Mash.new(data["friends"])
     end
+
+    def compare(user_id, options={})
+      data = oauth_request("/user/compare#{user_id}", options)
+      Hashie::Mash.new(data["compare"])
+    end
   end
 end
